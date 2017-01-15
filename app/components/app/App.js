@@ -7,14 +7,14 @@ import {
 } from '@exponent/ex-navigation';
 // import Snackbar from 'react-native-snackbar';
 import router from '../../router';
-import store from '../../store';
+// import store from '../../store';
 // import Nav from '../Nav';
 // import UkkelitContainer from '../../pages/ukkelit/UkkelitContainer';
 
-const navigationContext = new NavigationContext({
-  router,
-  store,
-});
+// const navigationContext = new NavigationContext({
+//   router,
+//   store,
+// });
 
 class App extends Component {
   componentWillMount() {
@@ -40,7 +40,7 @@ class App extends Component {
     //   });
     // }
     return (
-      <NavigationProvider context={navigationContext}>
+      <NavigationProvider router={router}>
         <StackNavigation
           defaultRouteConfig={{
             navigationBar: {

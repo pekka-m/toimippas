@@ -17,6 +17,7 @@ const users = (state = usersInitialState, action) => {
         users: action.payload.map(user => (
           { ...user, team: false }
         )),
+        error: null,
       };
     case 'FETCH_USERS_REJECTED':
       return { ...state, fetching: false, error: action.payload.name };
