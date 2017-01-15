@@ -4,6 +4,7 @@ import App from './App';
 import { fetchUsers } from '../../actions/ukkeliActions';
 
 const mapStateToProps = state => ({
+  users: state.users.users,
   error: state.users.error,
   fetching: state.users.fetching,
   fetched: state.users.fetched,

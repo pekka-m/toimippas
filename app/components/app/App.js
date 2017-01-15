@@ -17,8 +17,10 @@ import router from '../../router';
 // });
 
 class App extends Component {
-  componentWillMount() {
-    this.props.fetchUsers();
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.error === 'ei kalevi ei ollu mitään') {
+      nextProps.fetchUsers();
+    }
   }
 
   render() {

@@ -8,7 +8,7 @@ const usersInitialState = {
 const users = (state = usersInitialState, action) => {
   switch (action.type) {
     case 'FETCH_USERS_PENDING':
-      return { ...state, fetching: true };
+      return { ...state, fetching: true, fetched: false, error: null };
     case 'FETCH_USERS_FULFILLED':
       return {
         ...state,
@@ -35,6 +35,18 @@ const users = (state = usersInitialState, action) => {
           return { ...user };
         }),
       };
+    case 'persist/REHYDRATE':
+      console.log('reducer persist', action.payload);
+      if (action.payload.users && action.payload.users.users.length > 0) {
+        return {
+          ...state,
+          fetching: false,
+          fetched: true,
+          users: action.payload.users.users,
+          error: null,
+        };
+      }
+      return { ...state, error: 'ei kalevi ei ollu mitään' };
     default:
       return state;
   }

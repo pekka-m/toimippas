@@ -31,8 +31,6 @@ const reducer = combineReducers({
 
 const store = createStore(reducer, enhancer);
 
-// persistStore(store).purge();
 persistStore(store, { storage: AsyncStorage });
 
-
-export default createStore(reducer, applyMiddleware(thunk, promise(), logger()));
+export default store;
